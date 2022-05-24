@@ -6,7 +6,7 @@ import { ContactForm } from 'components/ContactForm';
 import { addToStorage, getFromStorage } from './components/storage';
 
 function App() {
-  const [contactList, setContactList] = useState(getFromStorage('contactList'));
+  const [contactList, setContactList] = useState(getFromStorage('contactList') ? getFromStorage('contactList') : []);
   const [filter, setFilter] = useState('');
 
   useEffect(() => {addToStorage('contactList', contactList)}, [contactList]);
